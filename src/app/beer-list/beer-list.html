@@ -7,7 +7,9 @@
             <th>Tipo</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Cantidad</th>
             <th>Compra</th>
+
         </tr>
      </thead>
     <tbody>
@@ -19,7 +21,11 @@
             <td><span class="badge text-bg-danger" *ngIf="beer.stock === 0">SIN STOCK</span></td>
             <td>
               <app-input-integer [(quantity)]="beer.quantity" [max]="beer.stock" *ngIf="beer.stock" (maxReached)="maxReached($event)"></app-input-integer>
-                    </td>
+           </td>
+           <td>
+              <button class="btn btn-primary"  (click)="addToCart(beer)">Agregar al Carrito</button>     
+            </td>
+    
         </tr>
     </tbody> 
     </table>

@@ -3,6 +3,7 @@ import { Beer } from './beer';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import { InputInteger } from '../input-integer/input-integer';
+import { BeerCartService } from '../beer-cart';
 @Component({
   selector: 'app-beer-list',
   imports: [CommonModule, FormsModule, InputInteger],
@@ -67,14 +68,21 @@ beers : Beer []= [
 }
 ];
 
+  constructor(private cart : BeerCartService) { 
+    }  
 
-  constructor() { }
 
   ngOnInit() :void {
 
    }
+
+   addToCart(beer: Beer): void{
+    this.cart.addToCart(beer);
+
+   }
  maxReached(message: string) {
   console.log(message);
- }
+}
+ 
 
 }
